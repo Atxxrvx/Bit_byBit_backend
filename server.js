@@ -20,12 +20,12 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('https://bitbybit-api.onrender.com/api/news', newsRoutes);
-app.use('https://bitbybit-api.onrender.com/api/user', userRoutes);
-app.use('https://bitbybit-api.onrender.com/api/nearby', queryRoutes);
-app.use('https://bitbybit-api.onrender.com/api/nutrition', nutritionRoutes);
-app.use('https://bitbybit-api.onrender.com/appointmentinfo', Appointment);
-app.use('https://bitbybit-api.onrender.com/symptom', Symptom);
+app.use('/api/news', newsRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/nearby', queryRoutes);
+app.use('/api/nutrition', nutritionRoutes);
+app.use('/appointmentinfo', Appointment);
+app.use('/symptom', Symptom)
 
 // Connect to the database
 mongoose.connect(process.env.MONGOURI)
