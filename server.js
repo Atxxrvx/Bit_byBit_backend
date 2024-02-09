@@ -7,9 +7,6 @@ const nutritionRoutes = require('./routes/nutritionRoute');
 const Appointment = require("./routes/Appointment");
 const Symptom = require('./routes/symptom');
 const mongoose = require('mongoose');
-import { disableReactDevTools } from '@fvilers/disable-react-devtools';
-
-if (process.env.NODE_ENV === 'production') disableReactDevTools();
 
 // Express app
 const app = express();
