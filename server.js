@@ -1,12 +1,15 @@
 const express = require('express');
-const cors = require('cors'); // Add this line
+const cors = require('cors');
 const newsRoutes = require('./routes/news');
 const userRoutes = require('./routes/user');
 const queryRoutes = require('./routes/query');
 const nutritionRoutes = require('./routes/nutritionRoute');
 const Appointment = require("./routes/Appointment");
-const Symptom = require('./routes/symptom')
+const Symptom = require('./routes/symptom');
 const mongoose = require('mongoose');
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
+
+if (process.env.NODE_ENV === 'production') disableReactDevTools();
 
 // Express app
 const app = express();
@@ -20,12 +23,12 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use('/api/news', newsRoutes);
-app.use('/api/user', userRoutes);
-app.use('/api/nearby', queryRoutes);
-app.use('/api/nutrition', nutritionRoutes);
-app.use('/appointmentinfo', Appointment);
-app.use('/symptom', Symptom)
+app.use('https://bitbybit-api.onrender.com/api/news', newsRoutes);
+app.use('https://bitbybit-api.onrender.com/api/user', userRoutes);
+app.use('https://bitbybit-api.onrender.com/api/nearby', queryRoutes);
+app.use('https://bitbybit-api.onrender.com/api/nutrition', nutritionRoutes);
+app.use('https://bitbybit-api.onrender.com/appointmentinfo', Appointment);
+app.use('https://bitbybit-api.onrender.com/symptom', Symptom);
 
 // Connect to the database
 mongoose.connect(process.env.MONGOURI)
