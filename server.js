@@ -1,11 +1,11 @@
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors'); // Add this line
 const newsRoutes = require('./routes/news');
 const userRoutes = require('./routes/user');
 const queryRoutes = require('./routes/query');
 const nutritionRoutes = require('./routes/nutritionRoute');
 const Appointment = require("./routes/Appointment");
-const Symptom = require('./routes/symptom');
+const Symptom = require('./routes/symptom')
 const mongoose = require('mongoose');
 
 // Express app

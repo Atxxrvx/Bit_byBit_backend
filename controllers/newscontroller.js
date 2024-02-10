@@ -20,11 +20,10 @@ const getallNews = async (req, res) => {
 }
 
 const getSearchNews = async (req, res) => {
-  const { query } = req.body;
-  newsapi.v2.topHeadlines({
-    category: 'health',
+  const { q:query } = req.query;
+  newsapi.v2.everything({
     language: 'en',
-    q: `${query}`,
+    q: `${query} health`,
   }).then(response => {
     return res.status(200).json(response)
   });
@@ -54,21 +53,6 @@ const getDeepSearch = async (req, res) => {
   });
 }
 
-// To query sources
-// All options are optional
-// newsapi.v2.sources({
-//   category: 'technology',
-//   language: 'en',
-//   country: 'us'
-// }).then(response => {
-//   console.log(response);
-//   /*
-//     {
-//       status: "ok",
-//       sources: [...]
-//     }
-//   */
-// });
 
 module.exports = {
   getallNews,

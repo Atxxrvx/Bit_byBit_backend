@@ -7,6 +7,7 @@ const schema = new mongoose.Schema(
     slot: { type: String, required: true },
     PName: { type: String, required: true },
     Drname: { type: String, required: true },
+    stat: { type: String }
   },
   { timestamps: true }
 );
